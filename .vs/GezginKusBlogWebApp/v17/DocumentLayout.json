@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\303\\Documents\\GitHub\\GezginKusBlog\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{295437BB-F026-43A8-83FA-5E58EC59B069}|GezginKusBlogWebApp\\GezginKusBlogWebApp.csproj|c:\\users\\303\\documents\\github\\gezginkusblog\\gezginkusblogwebapp\\yoneticipaneli\\giris.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{295437BB-F026-43A8-83FA-5E58EC59B069}|GezginKusBlogWebApp\\GezginKusBlogWebApp.csproj|solutionrelative:gezginkusblogwebapp\\yoneticipaneli\\giris.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{295437BB-F026-43A8-83FA-5E58EC59B069}|GezginKusBlogWebApp\\GezginKusBlogWebApp.csproj|c:\\users\\303\\documents\\github\\gezginkusblog\\gezginkusblogwebapp\\yoneticipaneli\\giris.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{295437BB-F026-43A8-83FA-5E58EC59B069}|GezginKusBlogWebApp\\GezginKusBlogWebApp.csproj|solutionrelative:gezginkusblogwebapp\\yoneticipaneli\\giris.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{295437BB-F026-43A8-83FA-5E58EC59B069}|GezginKusBlogWebApp\\GezginKusBlogWebApp.csproj|c:\\users\\303\\documents\\github\\gezginkusblog\\gezginkusblogwebapp\\yoneticipaneli\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{295437BB-F026-43A8-83FA-5E58EC59B069}|GezginKusBlogWebApp\\GezginKusBlogWebApp.csproj|solutionrelative:gezginkusblogwebapp\\yoneticipaneli\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "C:\\Users\\303\\Documents\\GitHub\\GezginKusBlog\\GezginKusBlogWebApp\\YoneticiPaneli\\Default.aspx",
+              "RelativeDocumentMoniker": "GezginKusBlogWebApp\\YoneticiPaneli\\Default.aspx",
+              "ToolTip": "C:\\Users\\303\\Documents\\GitHub\\GezginKusBlog\\GezginKusBlogWebApp\\YoneticiPaneli\\Default.aspx",
+              "RelativeToolTip": "GezginKusBlogWebApp\\YoneticiPaneli\\Default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-28T16:20:04.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Giris.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\303\\Documents\\GitHub\\GezginKusBlog\\GezginKusBlogWebApp\\YoneticiPaneli\\Giris.aspx.cs",
+              "RelativeDocumentMoniker": "GezginKusBlogWebApp\\YoneticiPaneli\\Giris.aspx.cs",
+              "ToolTip": "C:\\Users\\303\\Documents\\GitHub\\GezginKusBlog\\GezginKusBlogWebApp\\YoneticiPaneli\\Giris.aspx.cs",
+              "RelativeToolTip": "GezginKusBlogWebApp\\YoneticiPaneli\\Giris.aspx.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAgwCYAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-28T15:11:51.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Giris.aspx",
+              "DocumentMoniker": "C:\\Users\\303\\Documents\\GitHub\\GezginKusBlog\\GezginKusBlogWebApp\\YoneticiPaneli\\Giris.aspx",
+              "RelativeDocumentMoniker": "GezginKusBlogWebApp\\YoneticiPaneli\\Giris.aspx",
+              "ToolTip": "C:\\Users\\303\\Documents\\GitHub\\GezginKusBlog\\GezginKusBlogWebApp\\YoneticiPaneli\\Giris.aspx",
+              "RelativeToolTip": "GezginKusBlogWebApp\\YoneticiPaneli\\Giris.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-28T15:09:54.491Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

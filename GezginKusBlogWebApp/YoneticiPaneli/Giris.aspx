@@ -7,14 +7,14 @@
     <title></title>
     <link href="../assets/bootstrap-5.3.3/css/bootstrap.min.css" rel="stylesheet" />
     <style>
-        .golge{
+        .golge {
             -webkit-box-shadow: 0px 10px 15px -9px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 10px 15px -9px rgba(0,0,0,0.75);
-box-shadow: 0px 10px 15px -9px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 10px 15px -9px rgba(0,0,0,0.75);
+            box-shadow: 0px 10px 15px -9px rgba(0,0,0,0.75);
         }
     </style>
 </head>
-<body style="background-color:#F5F5F5">
+<body style="background-color: #F5F5F5">
     <form id="form1" runat="server">
         <div class="container-fluid">
             <div class="row" style="margin-top: 300px">
@@ -23,8 +23,14 @@ box-shadow: 0px 10px 15px -9px rgba(0,0,0,0.75);
                     <div class="card golge">
                         <div class="card-body">
                             <div class="row">
+                               <asp:panel ID="pnl_mesaj" runat="server" CssClass="col-12" Visible="false">
+                                   <div class="alert alert-danger">
+                                        <asp:Label ID="lbl_mesaj" runat="server"></asp:Label>
+                                   </div>
+                               </asp:panel>
                                 <div class="col-md-5">
-                                    <center><img src="../assets/SayfaResimleri/slidebanklogin.gif" class="img-fluid" /></center>
+                                    <center>
+                                        <img src="../assets/SayfaResimleri/slidebanklogin.gif" class="img-fluid" /></center>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="mt-3">
@@ -46,7 +52,7 @@ box-shadow: 0px 10px 15px -9px rgba(0,0,0,0.75);
                                     </div>
                                     <div class="clearfix"></div>
                                     <div class="mt-3 d-grid">
-                                        <asp:Button ID="btn_giris" runat="server" Text="Giriş Yap" CssClass="btn btn-primary d-block" />
+                                        <asp:Button ID="btn_giris" runat="server" Text="Giriş Yap" CssClass="btn btn-primary d-block" OnClick="btn_giris_Click" />
                                     </div>
                                 </div>
                             </div>
