@@ -89,6 +89,9 @@
     <Content Include="assets\bootstrap-5.3.3\js\bootstrap.esm.min.js" />
     <Content Include="assets\bootstrap-5.3.3\js\bootstrap.js" />
     <Content Include="assets\bootstrap-5.3.3\js\bootstrap.min.js" />
+    <Content Include="assets\css\dashboard.css" />
+    <Content Include="assets\js\dashboard.js" />
+    <Content Include="assets\SayfaResimleri\slidebanklogin.gif" />
     <Content Include="Web.config" />
     <Content Include="YoneticiPaneli\Default.aspx" />
     <Content Include="YoneticiPaneli\Giris.aspx" />
@@ -108,6 +111,20 @@
     </Compile>
     <Compile Include="YoneticiPaneli\Giris.aspx.designer.cs">
       <DependentUpon>Giris.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YoneticiPaneli\KategoriEkle.aspx.cs">
+      <DependentUpon>KategoriEkle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YoneticiPaneli\KategoriEkle.aspx.designer.cs">
+      <DependentUpon>KategoriEkle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YoneticiPaneli\YoneticiPanel.Master.cs">
+      <DependentUpon>YoneticiPanel.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YoneticiPaneli\YoneticiPanel.Master.designer.cs">
+      <DependentUpon>YoneticiPanel.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +157,8 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="YoneticiPaneli\KategoriEkle.aspx" />
+    <Content Include="YoneticiPaneli\YoneticiPanel.Master" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

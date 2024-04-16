@@ -7,7 +7,10 @@ CREATE TABLE YoneticiTurleri
 	ID int IDENTITY(1,1),
 	Isim nvarchar(50),
 	CONSTRAINT pk_YoneticiTur PRIMARY KEY(ID)
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 )
 GO
 INSERT INTO YoneticiTurleri(Isim) VALUES('Admin')
@@ -23,12 +26,19 @@ CREATE TABLE Yoneticiler
 	KullaniciAdi nvarchar(20),
 	Sifre nvarchar(20),
 	ProfilFotografi nvarchar(50),
+<<<<<<< Updated upstream
 	Durum bit,   --IsActive de kullanabilirdik
 	Silinmiþ bit, --IsDeleted de olurdu
 	--SOFT VE HARD DELETE FARKLIDIR
 	CONSTRAINT pk_Yonetici PRIMARY KEY(ID),
 	CONSTRAINT fk_YoneticiYoneticiTur FOREIGN KEY(YoneticiTur_ID) REFERENCES YoneticiTurleri(ID)
 
+=======
+	Durum bit,
+	Silinmis bit,
+	CONSTRAINT pk_Yonetici PRIMARY KEY(ID),
+	CONSTRAINT fk_YoneticiYoneticiTur FOREIGN KEY(YoneticiTur_ID) REFERENCES YoneticiTurleri(ID)
+>>>>>>> Stashed changes
 )
 GO
 CREATE TABLE Kategoriler
@@ -38,7 +48,10 @@ CREATE TABLE Kategoriler
 	Aciklama ntext,
 	Durum bit,
 	CONSTRAINT pk_Kategori PRIMARY KEY(ID)
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 )
 GO
 CREATE TABLE Makaleler
@@ -49,13 +62,21 @@ CREATE TABLE Makaleler
 	Baslik nvarchar(250),
 	Ozet nvarchar(500),
 	Icerik ntext,
+<<<<<<< Updated upstream
 	EklemeTarihi time,
+=======
+	EklemeTarihi date,
+>>>>>>> Stashed changes
 	KapakResim nvarchar(50),
 	GoruntulemeSayi int,
 	BegeniSayi int,
 	Durum bit,
 	CONSTRAINT pk_Makale PRIMARY KEY(ID),
+<<<<<<< Updated upstream
 	CONSTRAINT fk_MakaleKategori FOREIGN KEY(Kategori_ID) REFERENCES Kategoriler(ID),
+=======
+	CONSTRAINT fk_makaleKategori FOREIGN KEY(Kategori_ID) REFERENCES Kategoriler(ID),
+>>>>>>> Stashed changes
 	CONSTRAINT fk_MakaleYazar FOREIGN KEY(Yazar_ID) REFERENCES Yoneticiler(ID),
 )
 GO
@@ -67,11 +88,18 @@ CREATE TABLE Uyeler
 	Mail nvarchar(100),
 	KullaniciAdi nvarchar(20),
 	Sifre nvarchar(20),
+<<<<<<< Updated upstream
 	UyelikTarihi time,
 	Durum bit,  
 	Silinmiþ bit,
 	CONSTRAINT pk_Uye PRIMARY KEY(ID)
 	
+=======
+	UyelikTarihi date,
+	Durum bit,
+	Silinmis bit,
+	CONSTRAINT pk_Uye PRIMARY KEY(ID)
+>>>>>>> Stashed changes
 )
 GO
 CREATE TABLE Yorumlar
