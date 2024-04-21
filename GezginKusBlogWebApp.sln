@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GezginKusBlogWebApp", "GezginKusBlogWebApp\GezginKusBlogWebApp.csproj", "{295437BB-F026-43A8-83FA-5E58EC59B069}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeriErisimKatmani", "VeriErisimKatmani\VeriErisimKatmani.csproj", "{A8223906-FCDA-45A7-8563-CA34CF96309F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{295437BB-F026-43A8-83FA-5E58EC59B069}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{295437BB-F026-43A8-83FA-5E58EC59B069}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{295437BB-F026-43A8-83FA-5E58EC59B069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8223906-FCDA-45A7-8563-CA34CF96309F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8223906-FCDA-45A7-8563-CA34CF96309F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8223906-FCDA-45A7-8563-CA34CF96309F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8223906-FCDA-45A7-8563-CA34CF96309F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -160,6 +160,12 @@
     <Content Include="YoneticiPaneli\KategoriEkle.aspx" />
     <Content Include="YoneticiPaneli\YoneticiPanel.Master" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VeriErisimKatmani\VeriErisimKatmani.csproj">
+      <Project>{a8223906-fcda-45a7-8563-ca34cf96309f}</Project>
+      <Name>VeriErisimKatmani</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
