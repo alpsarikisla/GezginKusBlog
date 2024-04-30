@@ -45,6 +45,7 @@
     <Compile Include="Kategori.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VeriModeli.cs" />
+    <Compile Include="Yonetici.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

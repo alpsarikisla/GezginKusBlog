@@ -116,3 +116,5 @@ C:\Users\303\Documents\GitHub\GezginKusBlog\GezginKusBlogWebApp\obj\Debug\Gezgin
 C:\Users\303\Documents\GitHub\GezginKusBlog\GezginKusBlogWebApp\obj\Debug\GezginKu.0A4764BD.Up2Date
 C:\Users\303\Documents\GitHub\GezginKusBlog\GezginKusBlogWebApp\obj\Debug\GezginKusBlogWebApp.dll
 C:\Users\303\Documents\GitHub\GezginKusBlog\GezginKusBlogWebApp\obj\Debug\GezginKusBlogWebApp.pdb
+C:\Users\Alp\Documents\GitHub\GezginKusBlog\GezginKusBlogWebApp\bin\VeriErisimKatmani.dll
+C:\Users\Alp\Documents\GitHub\GezginKusBlog\GezginKusBlogWebApp\bin\VeriErisimKatmani.pdb

@@ -36,9 +36,12 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-nav">
-                <div class="nav-item text-nowrap">
-                    <a class="nav-link px-3" href="#">Çıkış Yap</a>
-                </div>
+               <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto" style="padding-right:20px;">
+                    <a class="me-3 py-2 text-dark text-decoration-none text-white" href="#">
+                        <asp:Literal ID="ltrl_kullanici" runat="server"></asp:Literal>
+                    </a>
+                    <asp:LinkButton ID="lbtn_cikis" runat="server" class="py-2 text-dark text-decoration-none text-white" OnClick="lbtn_cikis_Click">Çıkış Yap</asp:LinkButton>
+                </nav>
             </div>
         </header>
         <div class="container-fluid">

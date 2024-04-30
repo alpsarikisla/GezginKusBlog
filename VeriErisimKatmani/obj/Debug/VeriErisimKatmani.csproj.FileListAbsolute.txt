@@ -1,0 +1,6 @@
+C:\Users\Alp\Documents\GitHub\GezginKusBlog\VeriErisimKatmani\bin\Debug\VeriErisimKatmani.dll
+C:\Users\Alp\Documents\GitHub\GezginKusBlog\VeriErisimKatmani\bin\Debug\VeriErisimKatmani.pdb
+C:\Users\Alp\Documents\GitHub\GezginKusBlog\VeriErisimKatmani\obj\Debug\VeriErisimKatmani.csproj.AssemblyReference.cache
+C:\Users\Alp\Documents\GitHub\GezginKusBlog\VeriErisimKatmani\obj\Debug\VeriErisimKatmani.csproj.CoreCompileInputs.cache
+C:\Users\Alp\Documents\GitHub\GezginKusBlog\VeriErisimKatmani\obj\Debug\VeriErisimKatmani.dll
+C:\Users\Alp\Documents\GitHub\GezginKusBlog\VeriErisimKatmani\obj\Debug\VeriErisimKatmani.pdb
