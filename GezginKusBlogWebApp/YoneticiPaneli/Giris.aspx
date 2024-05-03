@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="col-md-7">
                                     <div class="mt-3">
-                                        <asp:TextBox ID="tb_mail" runat="server" CssClass="form-control" placeholder="Mail Adresiniz"></asp:TextBox>
+                                        <asp:TextBox ID="tb_mail" runat="server" CssClass="form-control" placeholder="Mail Adresiniz" Text="alpsarikisla@hotmail.com"></asp:TextBox>
                                     </div>
                                     <div class="mt-3">
                                         <asp:TextBox ID="tb_sifre" runat="server" CssClass="form-control" TextMode="Password" placeholder="Şifreniz"></asp:TextBox>
