@@ -85,6 +85,73 @@ namespace VeriErisimKatmani
             }
         }
 
+        public List<Kategori> TumKategorileriGetir()
+        {
+            try
+            {
+                List<Kategori> kategoriler = new List<Kategori>();
+                komut.CommandText = "SELECT ID, Isim, Aciklama, Durum FROM Kategoriler";
+                komut.Parameters.Clear();
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                while (okuyucu.Read())
+                {
+                    Kategori kat = new Kategori();
+                    kat.ID = okuyucu.GetInt32(0);
+                    kat.Isim = okuyucu.GetString(1);
+                    kat.Aciklama = okuyucu.GetString(2);
+                    kat.Durum = okuyucu.GetBoolean(3);
+                    kategoriler.Add(kat);
+                }
+                return kategoriler;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public void KategoriDurumDegistir(int id)
+        {
+            try
+            {
+                komut.CommandText = "SELECT Durum FROM Kategoriler WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                bool durum = Convert.ToBoolean(komut.ExecuteScalar());
+                komut.CommandText = "UPDATE Kategoriler SET Durum = @durum WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                komut.Parameters.AddWithValue("@durum", !durum);
+                komut.ExecuteNonQuery();
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public void KategoriSil(int id)
+        {
+            try
+            {
+                komut.CommandText = "DELETE FROM Kategoriler WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
         #endregion
     }
 }
