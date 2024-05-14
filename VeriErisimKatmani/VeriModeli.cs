@@ -151,6 +151,58 @@ namespace VeriErisimKatmani
                 baglanti.Close();
             }
         }
+        public bool KategoriGuncelle(Kategori kat)
+        {
+            try
+            {
+                komut.CommandText = "UPDATE Kategoriler SET Isim=@i, Aciklama=@a, Durum=@d WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", kat.ID);
+                komut.Parameters.AddWithValue("@i", kat.Isim);
+                komut.Parameters.AddWithValue("@a", kat.Aciklama);
+                komut.Parameters.AddWithValue("@d", kat.Durum);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+        public Kategori KategoriGetir(int id)
+        {
+            try
+            {
+                Kategori kat = new Kategori();
+                komut.CommandText = "SELECT ID, Isim, Aciklama, Durum FROM Kategoriler WHERE ID = @id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+
+                while (okuyucu.Read())
+                {
+                    kat.ID = okuyucu.GetInt32(0);
+                    kat.Isim = okuyucu.GetString(1);
+                    kat.Aciklama = okuyucu.GetString(2);
+                    kat.Durum = okuyucu.GetBoolean(3);
+                }
+                return kat;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
 
         #endregion
     }

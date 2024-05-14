@@ -38,7 +38,7 @@
                             <td>
                                 <asp:LinkButton ID="lbtn_durumdegistir" runat="server" CssClass="btn btn-success btn-sm" CommandArgument='<%# Eval("ID") %>' CommandName="durumdegistir"><i class="fa fa-recycle"></i></asp:LinkButton>
 
-                                <a href="KategoriDuzenle.aspx" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                                <a href='KategoriGuncelle.aspx?kategoriid=<%# Eval("ID") %>' class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
 
                                 <asp:LinkButton ID="lbtn_sil" runat="server" CssClass="btn btn-danger btn-sm" CommandArgument='<%# Eval("ID") %>' CommandName="sil"><i class="fa fa-trash" ></i></asp:LinkButton>
                             </td>

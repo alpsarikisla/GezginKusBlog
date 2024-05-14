@@ -2200,6 +2200,13 @@
     <Compile Include="YoneticiPaneli\KategoriEkle.aspx.designer.cs">
       <DependentUpon>KategoriEkle.aspx</DependentUpon>
     </Compile>
+    <Compile Include="YoneticiPaneli\KategoriGuncelle.aspx.cs">
+      <DependentUpon>KategoriGuncelle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YoneticiPaneli\KategoriGuncelle.aspx.designer.cs">
+      <DependentUpon>KategoriGuncelle.aspx</DependentUpon>
+    </Compile>
     <Compile Include="YoneticiPaneli\KategoriListele.aspx.cs">
       <DependentUpon>KategoriListele.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2299,6 +2306,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="YoneticiPaneli\KategoriEkle.aspx" />
+    <Content Include="YoneticiPaneli\KategoriGuncelle.aspx" />
     <Content Include="YoneticiPaneli\KategoriListele.aspx" />
     <Content Include="YoneticiPaneli\YoneticiPanel.Master" />
   </ItemGroup>
