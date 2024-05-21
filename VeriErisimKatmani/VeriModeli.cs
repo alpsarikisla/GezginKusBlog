@@ -84,7 +84,6 @@ namespace VeriErisimKatmani
                 baglanti.Close();
             }
         }
-
         public List<Kategori> TumKategorileriGetir()
         {
             try
@@ -114,7 +113,35 @@ namespace VeriErisimKatmani
                 baglanti.Close();
             }
         }
-
+        public List<Kategori> AktifKategorileriGetir()
+        {
+            try
+            {
+                List<Kategori> kategoriler = new List<Kategori>();
+                komut.CommandText = "SELECT ID, Isim, Aciklama, Durum FROM Kategoriler WHERE Durum = 1";
+                komut.Parameters.Clear();
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                while (okuyucu.Read())
+                {
+                    Kategori kat = new Kategori();
+                    kat.ID = okuyucu.GetInt32(0);
+                    kat.Isim = okuyucu.GetString(1);
+                    kat.Aciklama = okuyucu.GetString(2);
+                    kat.Durum = okuyucu.GetBoolean(3);
+                    kategoriler.Add(kat);
+                }
+                return kategoriler;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
         public void KategoriDurumDegistir(int id)
         {
             try
@@ -135,7 +162,6 @@ namespace VeriErisimKatmani
                 baglanti.Close();
             }
         }
-
         public void KategoriSil(int id)
         {
             try
@@ -197,6 +223,40 @@ namespace VeriErisimKatmani
             catch
             {
                 return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        #endregion
+
+        #region Makale Metotları
+
+        public bool MakaleEkle(Makale mak)
+        {
+            try
+            {
+                komut.CommandText = "INSERT INTO Makaleler(Kategori_ID, Yazar_ID, Baslik, Ozet, Icerik, EklemeTarihi, KapakResim, GoruntulemeSayi, BegeniSayi, Durum) VALUES(@kategori_ID, @yazar_ID, @baslik, @ozet, @icerik, @eklemeTarihi, @kapakResim, @goruntulemeSayi, @begeniSayi, @durum)";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@kategori_ID", mak.Kategori_ID);
+                komut.Parameters.AddWithValue("@yazar_ID", mak.Yazar_ID);
+                komut.Parameters.AddWithValue("@baslik", mak.Baslik);
+                komut.Parameters.AddWithValue("@ozet", mak.Ozet);
+                komut.Parameters.AddWithValue("@icerik", mak.Icerik);
+                komut.Parameters.AddWithValue("@eklemeTarihi", mak.EklemeTarihi);
+                komut.Parameters.AddWithValue("@kapakResim", mak.KapakResim);
+                komut.Parameters.AddWithValue("@goruntulemeSayi", mak.GoruntulemeSayi);
+                komut.Parameters.AddWithValue("@begeniSayi", mak.BegeniSayi);
+                komut.Parameters.AddWithValue("@durum", mak.Durum);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
             }
             finally
             {
