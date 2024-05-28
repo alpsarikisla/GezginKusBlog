@@ -264,6 +264,85 @@ namespace VeriErisimKatmani
             }
         }
 
+        public List<Makale> TumMakaleleriListele()
+        {
+            List<Makale> makaleler = new List<Makale>();
+            try
+            {
+                komut.CommandText = "SELECT M.ID, M.Kategori_ID, K.Isim, M.Yazar_ID, Y.KullaniciAdi, M.Baslik, M.Ozet, M.Icerik, M.EklemeTarihi, M.KapakResim, M.GoruntulemeSayi, M.BegeniSayi, M.Durum FROM Makaleler AS M JOIN Kategoriler AS K ON M.Kategori_ID = K.ID JOIN Yoneticiler AS Y ON M.Yazar_ID = Y.ID";
+                komut.Parameters.Clear();
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                while (okuyucu.Read())
+                {
+                    Makale m = new Makale();
+                    m.ID = okuyucu.GetInt32(0);
+                    m.Kategori_ID = okuyucu.GetInt32(1);
+                    m.Kategori = okuyucu.GetString(2);
+                    m.Yazar_ID = okuyucu.GetInt32(3);
+                    m.Yazar = okuyucu.GetString(4);
+                    m.Baslik = okuyucu.GetString(5);
+                    m.Ozet = okuyucu.GetString(6);
+                    m.Icerik = okuyucu.GetString(7);
+                    m.EklemeTarihi = okuyucu.GetDateTime(8);
+                    m.EklemeTarihiStr = okuyucu.GetDateTime(8).ToShortDateString();
+                    m.KapakResim = okuyucu.GetString(9);
+                    m.GoruntulemeSayi = okuyucu.GetInt32(10);
+                    m.BegeniSayi = okuyucu.GetInt32(11);
+                    m.Durum = okuyucu.GetBoolean(12);
+                    makaleler.Add(m);
+                }
+                return makaleler;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public Makale MakaleGetir(int id)
+        {
+            try
+            {
+                komut.CommandText = "SELECT M.ID, M.Kategori_ID, K.Isim, M.Yazar_ID, Y.KullaniciAdi, M.Baslik, M.Ozet, M.Icerik, M.EklemeTarihi, M.KapakResim, M.GoruntulemeSayi, M.BegeniSayi, M.Durum FROM Makaleler AS M JOIN Kategoriler AS K ON M.Kategori_ID = K.ID JOIN Yoneticiler AS Y ON M.Yazar_ID = Y.ID WHERE M.ID = @id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                Makale m = new Makale();
+                while (okuyucu.Read())
+                {
+                    m.ID = okuyucu.GetInt32(0);
+                    m.Kategori_ID = okuyucu.GetInt32(1);
+                    m.Kategori = okuyucu.GetString(2);
+                    m.Yazar_ID = okuyucu.GetInt32(3);
+                    m.Yazar = okuyucu.GetString(4);
+                    m.Baslik = okuyucu.GetString(5);
+                    m.Ozet = okuyucu.GetString(6);
+                    m.Icerik = okuyucu.GetString(7);
+                    m.EklemeTarihi = okuyucu.GetDateTime(8);
+                    m.EklemeTarihiStr = okuyucu.GetDateTime(8).ToShortDateString();
+                    m.KapakResim = okuyucu.GetString(9);
+                    m.GoruntulemeSayi = okuyucu.GetInt32(10);
+                    m.BegeniSayi = okuyucu.GetInt32(11);
+                    m.Durum = okuyucu.GetBoolean(12);
+                }
+                return m;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
         #endregion
     }
 }

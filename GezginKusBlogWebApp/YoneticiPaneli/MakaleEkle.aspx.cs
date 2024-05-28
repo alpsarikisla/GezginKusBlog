@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,14 +14,18 @@ namespace GezginKusBlogWebApp.YoneticiPaneli
         VeriModeli db = new VeriModeli();
         protected void Page_Load(object sender, EventArgs e)
         {
-            ddl_kategoriler.DataTextField = "Isim";
-            ddl_kategoriler.DataValueField = "ID";
-            ddl_kategoriler.DataSource = db.AktifKategorileriGetir();
-            ddl_kategoriler.DataBind();
+            if (!IsPostBack)
+            {
+                ddl_kategoriler.DataTextField = "Isim";
+                ddl_kategoriler.DataValueField = "ID";
+                ddl_kategoriler.DataSource = db.AktifKategorileriGetir();
+                ddl_kategoriler.DataBind();
+            }
         }
 
         protected void lbtn_makaleEkle_Click(object sender, EventArgs e)
         {
+            bool imageValid = true;
             Makale mak = new Makale();
             mak.Kategori_ID = Convert.ToInt32(ddl_kategoriler.SelectedItem.Value);
 
@@ -34,19 +39,51 @@ namespace GezginKusBlogWebApp.YoneticiPaneli
             mak.EklemeTarihi = DateTime.Now;
             mak.GoruntulemeSayi = 0;
             mak.Icerik = tb_icerik.Text;
-            mak.KapakResim = "none.png";
             mak.Ozet = tb_ozet.Text;
 
-            if (db.MakaleEkle(mak))
+            if (fu_resim.HasFile)
             {
-                pnl_basarili.Visible = true;
-                pnl_basaririz.Visible = false;
+                FileInfo fi = new FileInfo(fu_resim.FileName);
+                string uzanti = fi.Extension;//Dosyanın Uzantısını verir ".jpg"
+                if (uzanti == ".jpg" || uzanti == ".png" || uzanti == ".jpeg" || uzanti == ".gif")
+                {
+                    //Dosya isimlerini eşsiz yapmalıyız
+                    string isim = Guid.NewGuid().ToString();
+                    string dosyaTamAdi = isim + uzanti;
+                    mak.KapakResim = dosyaTamAdi;
+                    //fu_resim.SaveAs("../assets/MakaleResimleri/"+dosyaTamAdi);
+                    fu_resim.SaveAs(Server.MapPath("../assets/MakaleResimleri/" + dosyaTamAdi));
+                }
+                else
+                {
+                    imageValid = false;
+                }
+            }
+            else
+            {
+                mak.KapakResim = "none.png";
+            }
+
+
+            if (imageValid)
+            {
+                if (db.MakaleEkle(mak))
+                {
+                    pnl_basarili.Visible = true;
+                    pnl_basaririz.Visible = false;
+                }
+                else
+                {
+                    pnl_basarili.Visible = false;
+                    pnl_basaririz.Visible = true;
+                    lbl_mesaj.Text = "Makale eklerken Bir Hata Oluştu";
+                }
             }
             else
             {
                 pnl_basarili.Visible = false;
                 pnl_basaririz.Visible = true;
-                lbl_mesaj.Text = "Makale eklerken Bir Hata Oluştu";
+                lbl_mesaj.Text = "Resim türü uygun değil";
             }
         }
     }

@@ -2172,6 +2172,7 @@
     <Content Include="assets\fontawesome-free-6.5.2-web\svgs\solid\yin-yang.svg" />
     <Content Include="assets\fontawesome-free-6.5.2-web\svgs\solid\z.svg" />
     <Content Include="assets\js\dashboard.js" />
+    <Content Include="assets\MakaleResimleri\none.png" />
     <Content Include="assets\SayfaResimleri\slidebanklogin.gif" />
     <Content Include="Web.config" />
     <Content Include="YoneticiPaneli\Default.aspx" />
@@ -2220,6 +2221,13 @@
     </Compile>
     <Compile Include="YoneticiPaneli\MakaleEkle.aspx.designer.cs">
       <DependentUpon>MakaleEkle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="YoneticiPaneli\MakaleGuncelle.aspx.cs">
+      <DependentUpon>MakaleGuncelle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="YoneticiPaneli\MakaleGuncelle.aspx.designer.cs">
+      <DependentUpon>MakaleGuncelle.aspx</DependentUpon>
     </Compile>
     <Compile Include="YoneticiPaneli\MakaleListele.aspx.cs">
       <DependentUpon>MakaleListele.aspx</DependentUpon>
@@ -2323,6 +2331,7 @@
     <Content Include="YoneticiPaneli\KategoriGuncelle.aspx" />
     <Content Include="YoneticiPaneli\KategoriListele.aspx" />
     <Content Include="YoneticiPaneli\MakaleEkle.aspx" />
+    <Content Include="YoneticiPaneli\MakaleGuncelle.aspx" />
     <Content Include="YoneticiPaneli\MakaleListele.aspx" />
     <Content Include="YoneticiPaneli\YoneticiPanel.Master" />
   </ItemGroup>

@@ -17,6 +17,7 @@ namespace VeriErisimKatmani
         public string Ozet { get; set; }
         public string Icerik { get; set; }
         public DateTime EklemeTarihi { get; set; }
+        public string EklemeTarihiStr { get; set; }
         public string KapakResim { get; set; }
         public int GoruntulemeSayi { get; set; }
         public int BegeniSayi { get; set; }
