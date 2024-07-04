@@ -105,12 +105,12 @@ namespace GezginKusBlogWebApp.YoneticiPaneli
         protected global::System.Web.UI.WebControls.TextBox tb_icerik;
 
         /// <summary>
-        /// lbtn_makaleEkle control.
+        /// lbtn_makaleGuncelle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtn_makaleEkle;
+        protected global::System.Web.UI.WebControls.LinkButton lbtn_makaleGuncelle;
     }
 }

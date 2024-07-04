@@ -343,6 +343,73 @@ namespace VeriErisimKatmani
             }
         }
 
+        public bool MakaleGucelle(Makale mak)
+        {
+            try
+            {
+                komut.CommandText = "UPDATE Makaleler SET Kategori_ID=@kategori_ID, Baslik=@baslik, Ozet=@ozet, Icerik=@icerik, KapakResim=@kapakresim, Durum=@durum WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", mak.ID);
+                komut.Parameters.AddWithValue("@kategori_ID", mak.Kategori_ID);
+                komut.Parameters.AddWithValue("@baslik", mak.Baslik);
+                komut.Parameters.AddWithValue("@ozet", mak.Ozet);
+                komut.Parameters.AddWithValue("@icerik", mak.Icerik);
+                komut.Parameters.AddWithValue("@kapakresim", mak.KapakResim);
+                komut.Parameters.AddWithValue("@durum", mak.Durum);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public List<Makale> AktifMakaleleriListele()
+        {
+            List<Makale> makaleler = new List<Makale>();
+            try
+            {
+                komut.CommandText = "SELECT M.ID, M.Kategori_ID, K.Isim, M.Yazar_ID, Y.KullaniciAdi, M.Baslik, M.Ozet, M.Icerik, M.EklemeTarihi, M.KapakResim, M.GoruntulemeSayi, M.BegeniSayi, M.Durum FROM Makaleler AS M JOIN Kategoriler AS K ON M.Kategori_ID = K.ID JOIN Yoneticiler AS Y ON M.Yazar_ID = Y.ID WHERE M.Durum = 1";
+                komut.Parameters.Clear();
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                while (okuyucu.Read())
+                {
+                    Makale m = new Makale();
+                    m.ID = okuyucu.GetInt32(0);
+                    m.Kategori_ID = okuyucu.GetInt32(1);
+                    m.Kategori = okuyucu.GetString(2);
+                    m.Yazar_ID = okuyucu.GetInt32(3);
+                    m.Yazar = okuyucu.GetString(4);
+                    m.Baslik = okuyucu.GetString(5);
+                    m.Ozet = okuyucu.GetString(6);
+                    m.Icerik = okuyucu.GetString(7);
+                    m.EklemeTarihi = okuyucu.GetDateTime(8);
+                    m.EklemeTarihiStr = okuyucu.GetDateTime(8).ToShortDateString();
+                    m.KapakResim = okuyucu.GetString(9);
+                    m.GoruntulemeSayi = okuyucu.GetInt32(10);
+                    m.BegeniSayi = okuyucu.GetInt32(11);
+                    m.Durum = okuyucu.GetBoolean(12);
+                    makaleler.Add(m);
+                }
+                return makaleler;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
         #endregion
     }
 }

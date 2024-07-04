@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <asp:LinkButton ID="lbtn_makaleEkle" runat="server" CssClass="btn btn-primary" OnClick="lbtn_makaleEkle_Click">Makale Güncelle</asp:LinkButton>
+                    <asp:LinkButton ID="lbtn_makaleGuncelle" runat="server" CssClass="btn btn-primary" OnClick="lbtn_makaleGuncelle_Click">Makale Güncelle</asp:LinkButton>
                     <a href="MakaleListele.aspx" class="btn btn-link">Makaleler Listesine Git</a>
                 </div>
             </div>
