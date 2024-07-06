@@ -22,5 +22,6 @@ namespace VeriErisimKatmani
         public int GoruntulemeSayi { get; set; }
         public int BegeniSayi { get; set; }
         public bool Durum { get; set; }
+        public bool Onerilen { get; set; }
     }
 }

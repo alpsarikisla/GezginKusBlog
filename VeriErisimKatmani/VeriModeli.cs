@@ -238,7 +238,7 @@ namespace VeriErisimKatmani
         {
             try
             {
-                komut.CommandText = "INSERT INTO Makaleler(Kategori_ID, Yazar_ID, Baslik, Ozet, Icerik, EklemeTarihi, KapakResim, GoruntulemeSayi, BegeniSayi, Durum) VALUES(@kategori_ID, @yazar_ID, @baslik, @ozet, @icerik, @eklemeTarihi, @kapakResim, @goruntulemeSayi, @begeniSayi, @durum)";
+                komut.CommandText = "INSERT INTO Makaleler(Kategori_ID, Yazar_ID, Baslik, Ozet, Icerik, EklemeTarihi, KapakResim, GoruntulemeSayi, BegeniSayi, Durum,Onerilen) VALUES(@kategori_ID, @yazar_ID, @baslik, @ozet, @icerik, @eklemeTarihi, @kapakResim, @goruntulemeSayi, @begeniSayi, @durum, 0)";
                 komut.Parameters.Clear();
                 komut.Parameters.AddWithValue("@kategori_ID", mak.Kategori_ID);
                 komut.Parameters.AddWithValue("@yazar_ID", mak.Yazar_ID);
@@ -269,7 +269,7 @@ namespace VeriErisimKatmani
             List<Makale> makaleler = new List<Makale>();
             try
             {
-                komut.CommandText = "SELECT M.ID, M.Kategori_ID, K.Isim, M.Yazar_ID, Y.KullaniciAdi, M.Baslik, M.Ozet, M.Icerik, M.EklemeTarihi, M.KapakResim, M.GoruntulemeSayi, M.BegeniSayi, M.Durum FROM Makaleler AS M JOIN Kategoriler AS K ON M.Kategori_ID = K.ID JOIN Yoneticiler AS Y ON M.Yazar_ID = Y.ID";
+                komut.CommandText = "SELECT M.ID, M.Kategori_ID, K.Isim, M.Yazar_ID, Y.KullaniciAdi, M.Baslik, M.Ozet, M.Icerik, M.EklemeTarihi, M.KapakResim, M.GoruntulemeSayi, M.BegeniSayi, M.Durum, M.Onerilen FROM Makaleler AS M JOIN Kategoriler AS K ON M.Kategori_ID = K.ID JOIN Yoneticiler AS Y ON M.Yazar_ID = Y.ID";
                 komut.Parameters.Clear();
                 baglanti.Open();
                 SqlDataReader okuyucu = komut.ExecuteReader();
@@ -290,6 +290,11 @@ namespace VeriErisimKatmani
                     m.GoruntulemeSayi = okuyucu.GetInt32(10);
                     m.BegeniSayi = okuyucu.GetInt32(11);
                     m.Durum = okuyucu.GetBoolean(12);
+                    if (!okuyucu.IsDBNull(13))
+                    {
+                        m.Onerilen = okuyucu.GetBoolean(13);
+                    }
+                   
                     makaleler.Add(m);
                 }
                 return makaleler;
@@ -403,6 +408,107 @@ namespace VeriErisimKatmani
             catch (Exception ex)
             {
                 return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public List<Makale> OnerilenMakaleleriListele()
+        {
+            List<Makale> makaleler = new List<Makale>();
+            try
+            {
+                komut.CommandText = "SELECT M.ID, M.Kategori_ID, K.Isim, M.Yazar_ID, Y.KullaniciAdi, M.Baslik, M.Ozet, M.Icerik, M.EklemeTarihi, M.KapakResim, M.GoruntulemeSayi, M.BegeniSayi, M.Durum, M.Onerilen FROM Makaleler AS M JOIN Kategoriler AS K ON M.Kategori_ID = K.ID JOIN Yoneticiler AS Y ON M.Yazar_ID = Y.ID WHERE M.Onerilen = 1";
+                komut.Parameters.Clear();
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                while (okuyucu.Read())
+                {
+                    Makale m = new Makale();
+                    m.ID = okuyucu.GetInt32(0);
+                    m.Kategori_ID = okuyucu.GetInt32(1);
+                    m.Kategori = okuyucu.GetString(2);
+                    m.Yazar_ID = okuyucu.GetInt32(3);
+                    m.Yazar = okuyucu.GetString(4);
+                    m.Baslik = okuyucu.GetString(5);
+                    m.Ozet = okuyucu.GetString(6);
+                    m.Icerik = okuyucu.GetString(7);
+                    m.EklemeTarihi = okuyucu.GetDateTime(8);
+                    m.EklemeTarihiStr = okuyucu.GetDateTime(8).ToShortDateString();
+                    m.KapakResim = okuyucu.GetString(9);
+                    m.GoruntulemeSayi = okuyucu.GetInt32(10);
+                    m.BegeniSayi = okuyucu.GetInt32(11);
+                    m.Durum = okuyucu.GetBoolean(12);
+                    if (!okuyucu.IsDBNull(13))
+                    {
+                        m.Onerilen = okuyucu.GetBoolean(13);
+                    }
+                    makaleler.Add(m);
+                }
+                return makaleler;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public void MakaleDurumDegistir(int id)
+        {
+            try
+            {
+                komut.CommandText = "SELECT Durum FROM Makaleler WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                bool durum = Convert.ToBoolean(komut.ExecuteScalar());
+                komut.CommandText = "UPDATE Makaleler SET Durum = @d WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                komut.Parameters.AddWithValue("@d", !durum);
+                komut.ExecuteNonQuery();
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+        public void MakaleOnerilenDegistir(int id)
+        {
+            try
+            {
+                komut.CommandText = "SELECT Onerilen FROM Makaleler WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                bool onerilen = Convert.ToBoolean(komut.ExecuteScalar());
+                komut.CommandText = "UPDATE Makaleler SET Onerilen = @d WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                komut.Parameters.AddWithValue("@d", !onerilen);
+                komut.ExecuteNonQuery();
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public void MakaleSil(int id)
+        {
+            try
+            {
+                komut.CommandText = "DELETE FROM Makaleler WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
             }
             finally
             {

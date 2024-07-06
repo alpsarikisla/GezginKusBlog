@@ -6,7 +6,7 @@
     <asp:Repeater ID="rp_makaleler" runat="server">
         <ItemTemplate>
             <article class="blog-post">
-                <img src='assets/MakaleResimleri/<%# Eval("KapakResim") %>' class="img-thumbnail" />
+                <img src='assets/MakaleResimleri/<%# Eval("KapakResim") %>' class="img-thumbnail" style="min-width:850px" />
                 <h2 class="display-5 link-body-emphasis mb-1"><%# Eval("Baslik") %></h2>
                 <p class="blog-post-meta">
                     Tarih: <%# Eval("EklemeTarihiStr") %> | 

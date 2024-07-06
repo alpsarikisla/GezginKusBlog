@@ -15,6 +15,8 @@ namespace GezginKusBlogWebApp
         {
             rp_kategoriler.DataSource = db.AktifKategorileriGetir();
             rp_kategoriler.DataBind();
+            rp_onerilenler.DataSource = db.OnerilenMakaleleriListele();
+            rp_onerilenler.DataBind();
         }
     }
 }
